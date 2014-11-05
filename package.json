@@ -1,0 +1,25 @@
+{
+  "name": "packlink-js-sdk",
+  "version": "0.0.1",
+  "description": "Packlink JavaScript SDK",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:packlink-dev/packlink-js-sdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/packlink-dev/packlink-js-sdk/issues"
+  },
+  "homepage": "https://github.com/packlink-dev/packlink-js-sdk",
+  "dependencies": {
+    "request": "^2.47.0"
+  }
+}

@@ -22,7 +22,7 @@
   "dependencies": {
     "superagent": "^0.20.0",
     "lodash": "latest",
-    "q": "latest",
+    "bluebird": "latest",
     "browserify": "latest"
   },
   "devDependencies": {

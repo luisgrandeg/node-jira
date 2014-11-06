@@ -22,7 +22,7 @@ gulp.task('bundle', function () {
         gutil.log(gutil.colors.red('Bundle error: ', e.message));
       })
       .pipe(source('packlink-sdk.js'))
-      .pipe(gulp.dest('./build'))
+      .pipe(gulp.dest('./dist'))
       .pipe(livereload());
   }
   return bundle();

@@ -1,6 +1,6 @@
 # vim: ts=2 sw=2 noexpandtab
 
-SHELL        := /bin/bash
+SHELL := /bin/bash
 
 # $(call print,color,message)
 define print
@@ -11,7 +11,9 @@ endef
 
 build:
 	$(call print,4,Running browserify...)
-	-@browserify lib/index.js --standalone PacklinkSDK > packlink-js-sdk.js
+	-@rm -rf dist
+	-@mkdir dist
+	-@browserify lib/index.js --standalone PacklinkSDK > dist/packlink-js-sdk.js
 	$(call print,2,Done)
 
 install:

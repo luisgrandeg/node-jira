@@ -26,14 +26,15 @@
     "browserify": "latest"
   },
   "devDependencies": {
-    "tape": "latest",
     "gulp": "latest",
-    "gulp-util": "latest",
     "gulp-connect": "latest",
     "gulp-livereload": "latest",
     "gulp-uglifyjs": "latest",
-    "watchify": "latest",
+    "gulp-util": "latest",
+    "nock": "latest",
+    "tape": "latest",
     "vinyl-source-stream": "latest",
+    "watchify": "latest",
     "xtend": "latest"
   }
 }

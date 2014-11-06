@@ -7,4 +7,4 @@
       console.log(res.data);
     });
   });
-}(module && typeof module.exports !== 'undefined'));
+}(typeof module !== 'undefined' && typeof module.exports !== 'undefined'));

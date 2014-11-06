@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,20 @@
   },
   "homepage": "https://github.com/packlink-dev/packlink-js-sdk",
   "dependencies": {
-    "bluebird": "^2.3.10",
-    "lodash": "^2.4.1",
-    "q": "^1.0.1",
-    "qs": "^2.3.2",
-    "request": "^2.47.0",
-    "superagent": "^0.20.0"
+    "superagent": "^0.20.0",
+    "lodash": "latest",
+    "q": "latest",
+    "browserify": "latest"
+  },
+  "devDependencies": {
+    "tape": "latest",
+    "gulp": "latest",
+    "gulp-util": "latest",
+    "gulp-connect": "latest",
+    "gulp-livereload": "latest",
+    "gulp-uglifyjs": "latest",
+    "watchify": "latest",
+    "vinyl-source-stream": "latest",
+    "xtend": "latest"
   }
 }

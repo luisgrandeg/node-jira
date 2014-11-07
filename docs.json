@@ -1,0 +1,6 @@
+{
+  "title": "Packlink SDK Documentation",
+  "source": "lib/**/*.js",
+  "logo": "logo.png",
+  "output": "docs/"
+}

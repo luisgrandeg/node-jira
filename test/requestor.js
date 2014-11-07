@@ -1,4 +1,4 @@
-var test = require('tape')
+var assert = require("assert")
   , nock = require('nock')
   , Requestor = require('../lib/requestor');
 
@@ -15,67 +15,56 @@ var mock = nock('http://api.packitos.com')
     message: 'You\'re not allowed here'
   });
 
-test('Requestor', function (t) {
-  t.plan(2);
-
-  t.equal(typeof Requestor, 'function');
-  t.equal(Requestor.prototype.constructor, Requestor);
-});
-
-test('Requestor config', function (t) {
-  t.plan(2);
-
-  var requestor = new Requestor({api: 'someUrl'});
-  t.equal(JSON.stringify(requestor.config), JSON.stringify({api: 'someUrl'}));
-
-  requestor = new Requestor();
-  t.equal(typeof requestor.config, 'object');
-});
-
-test('Requestor.request', function (t) {
-  t.plan(5);
-
-  var requestor = new Requestor({
-    token: '12345ASDFyxz',
-    api: {
-      uri: 'http://api.packitos.com'
-    }
+describe('Requestor', function () {
+  it('should be a constructor', function () {
+    assert.equal(typeof Requestor, 'function');
+    assert.equal(Requestor.prototype.constructor, Requestor);
   });
 
-  var request = requestor.request('GET', '/v1/login');
+  it('should initialize with a config object', function () {
+    var requestor = new Requestor({api: 'someUrl'});
+    assert.equal(JSON.stringify(requestor.config), JSON.stringify({api: 'someUrl'}));
 
-  t.equal(typeof request, 'object');
-
-  request.end().then(function (res) {
-    t.equal(res.data.token, 'xyzASDF12345');
-    t.equal(res.data.username, 'tester');
-    t.equal(res.data.email, 'tester@packlink.com');
+    requestor = new Requestor();
+    assert.equal(typeof requestor.config, 'object');
   });
 
-
-  requestor.setToken(undefined);
-  request = requestor.request('GET', '/v1/user');
-  request.end().then(
-    function (res) {
-
-    },
-    function (res) {
-      console.log('error', res);
-      t.equal(res.status, 400)
+  it('should have a request method', function () {
+    var requestor = new Requestor({
+      token: '12345ASDFyxz',
+      api: {
+        uri: 'http://api.packitos.com'
+      }
     });
 
+    assert.equal(typeof requestor.request, 'function');
+
+    var request = requestor.request('GET', '/v1/login');
+
+    assert.equal(typeof request, 'object');
+
+    request.end().then(function (res) {
+      assert.equal(res.data.token, 'xyzASDF12345');
+      assert.equal(res.data.username, 'tester');
+      assert.equal(res.data.email, 'tester@packlink.com');
+    });
+
+    requestor.setToken(undefined);
+    request = requestor.request('GET', '/v1/user');
+    request.end().then(
+      function (res) { },
+      function (res) {
+        assert.equal(res.status, 400);
+      });
+  });
+
+  it('should be able to set the token into the requestor', function () {
+    var requestor = new Requestor();
+    assert.equal(typeof requestor.setToken, 'function');
+    requestor.setToken('ASDF');
+    assert.equal(requestor.config.token, 'ASDF');
+
+    requestor.setToken('FOOBAR');
+    assert.equal(requestor.config.token, 'FOOBAR');
+  });
 });
-
-
-
-test('Requestor.setToken', function (t) {
-  t.plan(2);
-
-  var requestor = new Requestor();
-  requestor.setToken('ASDF');
-  t.equal(requestor.config.token, 'ASDF');
-
-  requestor.setToken('FOOBAR');
-  t.equal(requestor.config.token, 'FOOBAR');
-});
-

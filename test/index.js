@@ -1,10 +1,17 @@
-var test = require('tape')
+var assert = require("assert")
 var PacklinkSDK = require('../lib');
 
-test('index', function (t) {
-  t.plan(3);
+describe('index', function (t) {
 
-  t.equal(typeof PacklinkSDK, 'object');
-  t.equal(typeof PacklinkSDK.shipmentsService, 'object');
-  t.equal(typeof PacklinkSDK.userService, 'object');
+  it('should export PacklinkSDK', function () {
+    assert.equal(typeof PacklinkSDK, 'object');
+  });
+
+  it('should export shipmentsService', function () {
+    assert.equal(typeof PacklinkSDK.shipmentsService, 'object');
+  });
+
+  it('should export userService', function () {
+    assert.equal(typeof PacklinkSDK.userService, 'object');
+  })
 });

@@ -26,16 +26,9 @@
     "browserify": "latest"
   },
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-connect": "latest",
-    "gulp-livereload": "latest",
-    "gulp-uglifyjs": "latest",
-    "gulp-util": "latest",
-    "nock": "latest",
+    "commentjs": "0.0.4",
     "istanbul": "^0.3.2",
-    "tape": "latest",
-    "vinyl-source-stream": "latest",
-    "watchify": "latest",
-    "xtend": "latest"
+    "mocha": "^2.0.1",
+    "nock": "latest"
   }
 }

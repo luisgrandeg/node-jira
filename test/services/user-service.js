@@ -46,6 +46,21 @@ test('user-service getUserInfo', function (t) {
     });
 });
 
+test('user-service getUserInfo (if already logged in)', function (t) {
+  t.plan(1);
+
+  var mock = nock('http://api.packitos.com')
+    .get('/v1/user')
+    .reply(200, {
+      email: 'demo@demo.com'
+    });
+
+  PacklinkSDK.userService.getUserInfo()
+    .then(function (res) {
+      t.equal(res.data.email, 'demo@demo.com')
+    });
+});
+
 test('user-service getKeys', function (t) {
   t.plan(2);
 

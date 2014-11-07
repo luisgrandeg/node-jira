@@ -33,7 +33,7 @@ test('Requestor config', function (t) {
 });
 
 test('Requestor.request', function (t) {
-  t.plan(4);
+  t.plan(5);
 
   var requestor = new Requestor({
     token: '12345ASDFyxz',
@@ -61,6 +61,7 @@ test('Requestor.request', function (t) {
     },
     function (res) {
       console.log('error', res);
+      t.equal(res.status, 400)
     });
 
 });

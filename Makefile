@@ -24,6 +24,7 @@ docs:
 
 test:
 	-@node $(NODE_MODULES)/mocha/bin/mocha test/**/*.js
+	-@node $(NODE_MODULES)/.bin/istanbul cover $(NODE_MODULES)/.bin/_mocha
 
 install:
 	$(call print,4,Installing...)

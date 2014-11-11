@@ -1,8 +1,7 @@
 # vim: ts=2 sw=2 noexpandtab
 
-SHELL := /bin/bash
+SHELL        := /bin/bash
 NODE_MODULES := ./node_modules
-TEST_FILES := $(shell find test -type f -name '*.js')
 
 # $(call print,color,message)
 define print
@@ -24,7 +23,7 @@ docs:
 
 test:
 	-@node $(NODE_MODULES)/mocha/bin/mocha test/**/*.js
-	-@node $(NODE_MODULES)/.bin/istanbul cover $(NODE_MODULES)/.bin/_mocha
+	-@node $(NODE_MODULES)/.bin/istanbul cover _mocha -- --recursive
 
 install:
 	$(call print,4,Installing...)

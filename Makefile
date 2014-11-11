@@ -23,7 +23,7 @@ docs:
 
 test:
 	-@node $(NODE_MODULES)/mocha/bin/mocha test/**/*.js
-	-@node $(NODE_MODULES)/.bin/istanbul cover _mocha -- --recursive
+	-@node $(NODE_MODULES)/.bin/istanbul cover $(NODE_MODULES)/.bin/_mocha -- --recursive
 
 install:
 	$(call print,4,Installing...)

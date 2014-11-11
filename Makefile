@@ -29,4 +29,4 @@ install:
 	$(call print,4,Installing...)
 	-@npm install
 
-.PHONY: build test
+.PHONY: build test docs

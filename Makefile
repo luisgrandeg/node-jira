@@ -22,7 +22,7 @@ docs:
 	-@node $(NODE_MODULES)/commentjs/bin/commentjs docs.json
 
 test:
-	-@node $(NODE_MODULES)/mocha/bin/mocha test/**/*.js
+	-@node $(NODE_MODULES)/mocha/bin/mocha --reporter nyan test/**/*.js
 	-@node $(NODE_MODULES)/.bin/istanbul cover $(NODE_MODULES)/.bin/_mocha -- --recursive
 
 install:

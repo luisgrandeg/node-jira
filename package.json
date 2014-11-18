@@ -27,9 +27,9 @@
     "browserify": "latest"
   },
   "devDependencies": {
-    "commentjs": "0.0.6",
-    "istanbul": "^0.3.2",
-    "mocha": "^2.0.1",
+    "commentjs": "latest",
+    "istanbul": "latest",
+    "mocha": "latest",
     "nock": "latest"
   }
 }

@@ -1,22 +1,20 @@
-# packlink-js-sdk
+# Packlink JavaScript SDK
 
 ## Installation
 
 ```bash
-$ npm install
+$ sudo make install
 ```
-## Building
 
-Run tests with
+## Tests
 
 ```bash
 $ make test
 ```
 
-Build the SDK with
+## Build
+Export the sdk for browser use
 
 ```bash
 $ make
 ```
-
-
